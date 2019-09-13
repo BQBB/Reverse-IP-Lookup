@@ -13,6 +13,7 @@ def extract(ip):
         i=socket.gethostbyaddr(str(ip))
         save.write(i[0]+'\n')
     except:
+        #Dont Forget To ADD ur Apy-Key
         req=requests.get('https://api.viewdns.info/reverseip/?host='+str(ip)+'&apikey=API-KEY&output=json').text
         js=json.loads(req)
         count=int(js['response']['domain_count'])
@@ -32,34 +33,21 @@ print('''
 ip=args()[0]
 li=args()[1]
 if(li):
-    
     li=open(str(li)+'.txt','r')
     for i in li:
-        
         extract(i.strip())
 elif(li==None):
-    
     if(ip):
-        
-        
         extract(ip.strip())
     else:
-        
-        
         ch=input('[ 1 ] From IP\n[ 2 ] From List\nSelect : ')
         if(int(ch)==1):
-            
             ip=input('IP : ')
             extract(ip.strip())
         elif(int(ch)==2):
-            
             li=input('List : ')
             li=open(li+'.txt','r')
             for i in li:
-                
                 extract(i.strip())
         else:
             exit()
-
-        
-
