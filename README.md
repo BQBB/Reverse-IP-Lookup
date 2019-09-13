@@ -16,4 +16,6 @@ Usage : Python ReverseIPLookup.py -l {Name A List}
 <h1>API-KEY</h1>
 <pre><code>
 Register Here Free Plan > https://viewdns.info/api/?msg=validate#register
+After That Go To PROJECT in line 16
+Replace API-KEY With Your API-KEY
 </code></pre>
