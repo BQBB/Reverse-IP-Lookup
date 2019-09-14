@@ -11,13 +11,13 @@ def extract(ip):
     save = open('Sites.txt','a')
     try:
         i=socket.gethostbyaddr(str(ip))
-        save.write(i[0]+'\n')
+        save.write(i[0]+' | '+str(ip)+'\n')
     except:
         req=requests.get('https://api.viewdns.info/reverseip/?host='+str(ip)+'&apikey=API-KEY&output=json').text
         js=json.loads(req)
         count=int(js['response']['domain_count'])
         for i in range(0,count):
-            save.write(js['response']['domains'][i]['name']+'\n')
+            save.write(js['response']['domains'][i]['name']+' | '+str(ip)+'\n')
 print('''
        ////////////////////////////////////////
      ///////////////////////////////////////////
